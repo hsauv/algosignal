@@ -60,14 +60,14 @@ export default async function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* HERO                                                              */}
       {/* ---------------------------------------------------------------- */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-indigo-700 px-6 py-16 text-center text-white shadow-lg sm:px-10 sm:py-24">
-        <p className="text-sm font-semibold uppercase tracking-widest text-indigo-200">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-pink-600 px-6 py-16 text-center text-white shadow-lg sm:px-10 sm:py-24">
+        <p className="text-sm font-semibold uppercase tracking-widest text-rose-100">
           IA au féminin · association citoyenne
         </p>
         <h1 className="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight sm:text-5xl">
           Rendre visibles les discriminations que l'IA produit.
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-lg text-indigo-100">
+        <p className="mx-auto mt-5 max-w-2xl text-lg text-rose-50">
           Nous <strong className="text-white">sensibilisons</strong> par des
           ateliers, nous <strong className="text-white">recueillons</strong> les
           signalements, et nous <strong className="text-white">agissons</strong>{" "}
@@ -77,7 +77,7 @@ export default async function HomePage() {
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
             href="#ateliers"
-            className="rounded-lg bg-white px-6 py-3 font-semibold text-brand shadow-sm transition hover:bg-indigo-50"
+            className="rounded-lg bg-white px-6 py-3 font-semibold text-brand shadow-sm transition hover:bg-rose-50"
           >
             Participer à un atelier
           </a>
