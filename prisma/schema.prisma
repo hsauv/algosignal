@@ -81,6 +81,18 @@ model Report {
   @@index([createdAt])
 }
 
+model ContactMessage {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+
+  @@index([createdAt])
+}
+
 model Comment {
   id        String   @id @default(cuid())
   content   String

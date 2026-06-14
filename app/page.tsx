@@ -60,30 +60,34 @@ export default async function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* HERO                                                              */}
       {/* ---------------------------------------------------------------- */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-pink-600 px-6 py-16 text-center text-white shadow-lg sm:px-10 sm:py-24">
-        <p className="text-sm font-semibold uppercase tracking-widest text-rose-100">
+      <section className="py-12 text-center sm:py-20">
+        <p className="text-sm font-semibold uppercase tracking-widest text-brand">
           IA au féminin · association citoyenne
         </p>
-        <h1 className="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight sm:text-5xl">
+        <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl">
           Rendre visibles les discriminations que l'IA produit.
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-lg text-rose-50">
-          Nous <strong className="text-white">sensibilisons</strong> par des
-          ateliers, nous <strong className="text-white">recueillons</strong> les
-          signalements, et nous <strong className="text-white">agissons</strong>{" "}
-          — pour une intelligence artificielle juste et inclusive, en
-          particulier pour les femmes et les minorités.
+        <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-brand" />
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+          Nous{" "}
+          <strong className="font-semibold text-gray-900">sensibilisons</strong>{" "}
+          par des ateliers, nous{" "}
+          <strong className="font-semibold text-gray-900">recueillons</strong>{" "}
+          les signalements, et nous{" "}
+          <strong className="font-semibold text-gray-900">agissons</strong> —
+          pour une intelligence artificielle juste et inclusive, en particulier
+          pour les femmes et les minorités.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
             href="#ateliers"
-            className="rounded-lg bg-white px-6 py-3 font-semibold text-brand shadow-sm transition hover:bg-rose-50"
+            className="rounded-lg bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark"
           >
             Participer à un atelier
           </a>
           <a
             href="#algosignal"
-            className="rounded-lg border border-white/40 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
+            className="rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-700 transition hover:border-brand hover:text-brand"
           >
             Signaler un biais
           </a>
