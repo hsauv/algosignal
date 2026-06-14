@@ -73,10 +73,10 @@ export default async function HomePage() {
           <strong className="font-semibold text-gray-900">sensibilisons</strong>{" "}
           par des ateliers, nous{" "}
           <strong className="font-semibold text-gray-900">recueillons</strong>{" "}
-          les signalements, et nous{" "}
-          <strong className="font-semibold text-gray-900">agissons</strong> —
-          pour une intelligence artificielle juste et inclusive, en particulier
-          pour les femmes et les minorités.
+          les signalements et nous{" "}
+          <strong className="font-semibold text-gray-900">agissons</strong> pour
+          une intelligence artificielle juste et inclusive, qui n'oublie ni les
+          femmes ni les minorités.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <a
