@@ -261,12 +261,12 @@ export default async function HomePage() {
           Organiser un atelier, soutenir l'association, ou simplement en savoir
           plus — écrivez-nous.
         </p>
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
+        <Link
+          href="/contact"
           className="mt-6 inline-block rounded-lg bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark"
         >
           Nous contacter
-        </a>
+        </Link>
       </section>
     </div>
   );

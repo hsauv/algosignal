@@ -74,3 +74,25 @@ export const createCommentSchema = z.object({
 });
 
 export type CreateCommentInput = z.infer<typeof createCommentSchema>;
+
+// Contact form.
+export const createContactSchema = z.object({
+  name: z
+    .string({ required_error: "Votre nom est requis." })
+    .trim()
+    .min(2, "Votre nom est requis.")
+    .max(120, "Nom trop long."),
+  email: z
+    .string({ required_error: "Votre e-mail est requis." })
+    .trim()
+    .email("Adresse e-mail invalide.")
+    .max(200, "E-mail trop long."),
+  subject: z.string().trim().max(200, "Sujet trop long.").optional().or(z.literal("")),
+  message: z
+    .string({ required_error: "Votre message est requis." })
+    .trim()
+    .min(10, "Votre message est trop court (10 caractères minimum).")
+    .max(5000, "Message trop long."),
+});
+
+export type CreateContactInput = z.infer<typeof createContactSchema>;

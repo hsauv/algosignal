@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { isAdmin } from "@/lib/admin-auth";
@@ -43,7 +44,12 @@ export default async function AdminPage() {
             {countFor("REMOVED")} retiré(s)
           </p>
         </div>
-        <AdminLogout />
+        <div className="flex items-center gap-4">
+          <Link href="/admin/messages" className="text-sm text-brand hover:underline">
+            Messages reçus
+          </Link>
+          <AdminLogout />
+        </div>
       </div>
 
       <p className="rounded-lg bg-brand-light px-4 py-3 text-sm text-gray-700">

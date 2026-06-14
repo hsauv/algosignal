@@ -15,6 +15,9 @@ export function Header() {
           <Link href="/reports" className="text-gray-600 hover:text-brand">
             Signalements
           </Link>
+          <Link href="/contact" className="text-gray-600 hover:text-brand">
+            Contact
+          </Link>
           <Link
             href="/report"
             className="rounded-lg bg-brand px-3 py-1.5 font-medium text-white hover:bg-brand-dark"

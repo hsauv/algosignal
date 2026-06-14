@@ -26,6 +26,9 @@ export default function RootLayout({
           <div className="mx-auto max-w-5xl px-4 py-6 text-center text-sm text-gray-400">
             <p>IA au féminin — association citoyenne pour une IA juste et inclusive.</p>
             <p className="mt-2 space-x-3">
+              <Link href="/contact" className="hover:text-brand">
+                Contact
+              </Link>
               <Link href="/confidentialite" className="hover:text-brand">
                 Confidentialité
               </Link>
