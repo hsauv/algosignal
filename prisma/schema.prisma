@@ -1,0 +1,96 @@
+// ---------------------------------------------------------------------------
+// AlgoSignal — Prisma schema
+//
+// Single-moderator model: there is no user authentication for citizens.
+// Reporting and commenting are always anonymous. The /admin area is protected
+// by a single shared password (see lib/admin-auth.ts), not by user accounts.
+// `userId` columns are kept (nullable, no relation) for forward compatibility
+// if per-user accounts are added later.
+// ---------------------------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+enum Domain {
+  HEALTHCARE
+  EMPLOYMENT
+  CREDIT
+  JUSTICE
+  EDUCATION
+  HOUSING
+  OTHER
+}
+
+enum BiasType {
+  GENDER
+  ETHNICITY
+  AGE
+  DISABILITY
+  LANGUAGE
+  GEOGRAPHY
+  OTHER
+}
+
+// A posteriori model (LCEN host status): reports are PUBLISHED on submission.
+// VERIFIED is an added trust label after review; REMOVED = taken down
+// (illicit content / notice-and-takedown / right-to-erasure).
+enum ReportStatus {
+  PUBLISHED
+  VERIFIED
+  REMOVED
+}
+
+// ---------------------------------------------------------------------------
+// Core models
+// ---------------------------------------------------------------------------
+
+model Report {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  domain      Domain
+  systemName  String
+  biasTypes   BiasType[]
+  description String
+  evidenceUrl String?
+  anonymous   Boolean      @default(true)
+  status      ReportStatus @default(PUBLISHED)
+  upvotes     Int          @default(0)
+
+  // RGPD: explicit consent captured at submission (legal basis = consent).
+  consentedAt DateTime
+  // SHA-256 of the one-time secret that lets the author erase this report.
+  deletionTokenHash String?
+
+  // Reserved for a future per-user feature; always null today.
+  userId   String?
+  comments Comment[]
+
+  @@index([status])
+  @@index([domain])
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+
+  reportId String
+  report   Report @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  // Reserved for a future per-user feature; always null today.
+  userId String?
+
+  @@index([reportId])
+}

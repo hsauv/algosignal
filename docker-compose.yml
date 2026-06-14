@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# Self-hosted deployment (e.g. an OVHcloud / Scaleway VPS or bare-metal).
+# For a managed sovereign Postgres, drop the `db` service and point
+# DATABASE_URL at the managed instance instead.
+# ---------------------------------------------------------------------------
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: algosignal
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+      POSTGRES_DB: algosignal
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U algosignal"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Container talks to the db service over the compose network.
+      DATABASE_URL: postgresql://algosignal:${POSTGRES_PASSWORD:-change-me}@db:5432/algosignal?schema=public
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me}
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:

@@ -1,0 +1,63 @@
+# ---------------------------------------------------------------------------
+# Production stack for a single Outscale VM (SecNumCloud region).
+#   caddy  → public 80/443, automatic TLS, reverse-proxy to the app
+#   web    → Next.js standalone (built on the VM), internal only
+#   db     → PostgreSQL, internal only, data on a persistent volume
+#
+# Required env (see .env on the VM):
+#   DOMAIN, ACME_EMAIL, POSTGRES_PASSWORD, ADMIN_PASSWORD
+#
+# Usage on the VM:  docker compose -f docker-compose.prod.yml up -d --build
+# ---------------------------------------------------------------------------
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: algosignal
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: algosignal
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U algosignal"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # No published port: the database is only reachable on the internal network.
+
+  web:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://algosignal:${POSTGRES_PASSWORD}@db:5432/algosignal?schema=public
+      DOMAIN: ${DOMAIN:?set DOMAIN}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD}
+    expose:
+      - "3000"
+    # Migrations run automatically on start (prisma migrate deploy), see Dockerfile.
+
+  caddy:
+    # Custom build: Caddy + rate-limit module (see caddy/Dockerfile).
+    build: ./caddy
+    restart: unless-stopped
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL:?set ACME_EMAIL}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:
