@@ -6,7 +6,7 @@ export function Header() {
     <header className="border-b border-gray-200 bg-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         <Link href="/" className="text-lg font-bold text-brand">
-          AlgoSignal
+          IA au féminin
         </Link>
         <nav className="flex items-center gap-4 text-sm">
           <Link href="/reports" className="text-gray-600 hover:text-brand">

@@ -1,11 +1,10 @@
 import { CONTACT_EMAIL } from "@/lib/constants";
 
 export const metadata = {
-  title: "Mentions légales — AlgoSignal",
+  title: "Mentions légales — IA au féminin",
 };
 
-// NOTE: legal template. Replace the {{...}} placeholders with your real details
-// and have it reviewed before launch.
+// NOTE: have this reviewed before relying on it.
 export default function LegalNoticePage() {
   return (
     <article className="prose mx-auto max-w-2xl text-gray-800">
@@ -13,13 +12,12 @@ export default function LegalNoticePage() {
 
       <h2 className="mt-6 text-lg font-semibold">Éditeur</h2>
       <p className="mt-2">
-        {"{{nom de l'éditeur / association}}"} — {"{{forme juridique}}"},
-        {" "}
-        {"{{adresse}}"}. Contact :{" "}
+        Site édité par l'association <strong>IA au féminin</strong>, représentée
+        par Hanen Mizouni. Contact :{" "}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand underline">
           {CONTACT_EMAIL}
         </a>
-        . Directeur·rice de la publication : {"{{nom}}"}.
+        . Responsable de la publication : Hanen Mizouni.
       </p>
 
       <h2 className="mt-6 text-lg font-semibold">Hébergement</h2>
@@ -33,7 +31,7 @@ export default function LegalNoticePage() {
         Statut et responsabilité éditoriale
       </h2>
       <p className="mt-2">
-        AlgoSignal héberge des témoignages publiés par ses utilisateur·rice·s. Les
+        IA au féminin héberge des témoignages publiés par ses utilisateur·rice·s. Les
         signalements sont mis en ligne <strong>sans validation préalable</strong>
         {" "}
         et n'engagent que leurs auteur·rice·s. Conformément à la loi pour la

@@ -7,9 +7,9 @@ import { Header } from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AlgoSignal — Signaler les biais algorithmiques",
+  title: "IA au féminin — Pour une IA juste et inclusive",
   description:
-    "Plateforme citoyenne de signalement des biais et discriminations produits par les systèmes d'IA.",
+    "Association citoyenne pour une intelligence artificielle juste et inclusive. AlgoSignal, notre plateforme, recueille les signalements de biais et discriminations produits par les systèmes d'IA.",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
         <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
         <footer className="border-t border-gray-200 bg-white">
           <div className="mx-auto max-w-5xl px-4 py-6 text-center text-sm text-gray-400">
-            <p>AlgoSignal — plateforme citoyenne contre les biais algorithmiques.</p>
+            <p>IA au féminin — association citoyenne pour une IA juste et inclusive.</p>
             <p className="mt-2 space-x-3">
               <Link href="/confidentialite" className="hover:text-brand">
                 Confidentialité

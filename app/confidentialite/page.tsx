@@ -1,11 +1,11 @@
 import { CONTACT_EMAIL } from "@/lib/constants";
 
 export const metadata = {
-  title: "Politique de confidentialité — AlgoSignal",
+  title: "Politique de confidentialité — IA au féminin",
 };
 
-// NOTE: legal template. Replace the {{...}} placeholders with your real details
-// and have it reviewed before launch (RGPD compliance is your responsibility).
+// NOTE: have this reviewed by a lawyer / the CNIL before relying on it
+// (RGPD compliance, especially for Art. 9 sensitive data, is your responsibility).
 export default function PrivacyPolicyPage() {
   return (
     <article className="prose mx-auto max-w-2xl text-gray-800">
@@ -13,15 +13,14 @@ export default function PrivacyPolicyPage() {
         Politique de confidentialité
       </h1>
       <p className="mt-2 text-sm text-gray-500">
-        Dernière mise à jour : {"{{date}}"}
+        Dernière mise à jour : 14 juin 2026
       </p>
 
       <h2 className="mt-6 text-lg font-semibold">Responsable de traitement</h2>
       <p className="mt-2">
         Le responsable du traitement des données est{" "}
-        <strong>{"{{nom du responsable / association}}"}</strong>,
-        {" "}
-        {"{{adresse}}"}, joignable à{" "}
+        <strong>Hanen Mizouni</strong>, pour l'association IA au féminin,
+        joignable à{" "}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-brand underline">
           {CONTACT_EMAIL}
         </a>
@@ -30,7 +29,7 @@ export default function PrivacyPolicyPage() {
 
       <h2 className="mt-6 text-lg font-semibold">Données collectées</h2>
       <p className="mt-2">
-        AlgoSignal applique le principe de <strong>minimisation des données</strong>.
+        IA au féminin applique le principe de <strong>minimisation des données</strong>.
         Un signalement ne contient que : le domaine concerné, le nom du système
         d'IA, le ou les types de biais, la description rédigée par l'auteur·rice,
         et éventuellement un lien ou une description de preuve.
@@ -58,7 +57,8 @@ export default function PrivacyPolicyPage() {
       <p className="mt-2">
         Les signalements sont conservés tant qu'ils restent pertinents pour la
         mission d'intérêt public de la plateforme, ou jusqu'à leur suppression par
-        l'auteur·rice. {"{{préciser une durée maximale, ex. 3 ans}}"}
+        l'auteur·rice. Les signalements et leurs sauvegardes sont conservés au
+        maximum 3 ans après la dernière activité, puis supprimés.
       </p>
 
       <h2 className="mt-6 text-lg font-semibold">Vos droits</h2>
@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
       <p className="mt-2">
         L'application est hébergée par Vercel, avec exécution configurée en région
         européenne (Paris). La base de données est hébergée dans l'Union
-        européenne ({"{{préciser le prestataire et la région}}"}).
+        européenne (Neon, région de Francfort, Allemagne).
       </p>
     </article>
   );

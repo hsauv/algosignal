@@ -59,5 +59,4 @@ export const PUBLIC_STATUSES: ReportStatus[] = ["PUBLISHED", "VERIFIED"];
 export const PAGE_SIZE = 10;
 
 // Contact address used for the notice-and-takedown / RGPD requests.
-// TODO: set to your real contact address before launch.
-export const CONTACT_EMAIL = "contact@algosignal.exemple.fr";
+export const CONTACT_EMAIL = "contact@iaaufeminin.fr";
