@@ -8,7 +8,10 @@ export function Header() {
         <Link href="/" className="text-lg font-bold text-brand">
           IA au féminin
         </Link>
-        <nav className="flex items-center gap-3 text-sm sm:gap-4">
+        <nav className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1 text-sm sm:gap-x-4">
+          <Link href="/comprendre" className="text-gray-600 hover:text-brand">
+            Comprendre
+          </Link>
           <Link href="/#ateliers" className="text-gray-600 hover:text-brand">
             Ateliers
           </Link>

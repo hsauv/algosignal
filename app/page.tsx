@@ -127,6 +127,28 @@ export default async function HomePage() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
+      {/* COMPRENDRE — teaser vers la page éducative                        */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm sm:p-12">
+        <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+          Comprendre
+        </p>
+        <h2 className="mx-auto mt-2 max-w-2xl text-2xl font-bold text-gray-900 sm:text-3xl">
+          Les biais algorithmiques, expliqués simplement
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-gray-600">
+          Comment une IA peut discriminer, dans quels domaines, et comment
+          réagir&nbsp;— l'essentiel à savoir, sans jargon.
+        </p>
+        <Link
+          href="/comprendre"
+          className="mt-6 inline-block rounded-lg bg-brand px-6 py-3 font-semibold text-white transition hover:bg-brand-dark"
+        >
+          En savoir plus
+        </Link>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
       {/* ATELIERS                                                          */}
       {/* ---------------------------------------------------------------- */}
       <section id="ateliers" className="scroll-mt-20">
